@@ -66,6 +66,8 @@
              * the image's src attribute to the passed in URL.
              */
             resourceCache[url] = false;
+            // NOTE: This assignment triggers the .onload() event, which in
+            // turn assigns the actual image to the cache (i.e. resourceCache)
             img.src = url;
         }
     }

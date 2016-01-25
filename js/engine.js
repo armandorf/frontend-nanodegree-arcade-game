@@ -58,12 +58,17 @@ var Engine = (function(global) {
          */
         win.requestAnimationFrame(main);
     }
-
+    
+    // NOTE: This function 
+    
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
      * game loop.
      */
     function init() {
+        // NOTE: Attempting to find how many times this gets called.
+        // I think 4 times.
+        console.log("I was called");
         reset();
         lastTime = Date.now();
         main();
@@ -161,7 +166,12 @@ var Engine = (function(global) {
     function reset() {
         // noop
     }
-
+    
+    
+    // NOTE: Here is where the app starts!
+    // Resources.load() is the first function called. 
+    // 
+    
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
      * all of these images are properly loaded our game will start.
@@ -173,6 +183,9 @@ var Engine = (function(global) {
         'images/enemy-bug.png',
         'images/char-boy.png'
     ]);
+    
+    // NOTE: This method pushes the function init() into a stack (readyCallbacks) in Resources that
+    // is called after the images are successfully loaded (each image has a callback called .onload())
     Resources.onReady(init);
 
     /* Assign the canvas' context object to the global variable (the window
