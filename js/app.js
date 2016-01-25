@@ -18,6 +18,7 @@ Enemy.prototype.update = function(dt) {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+    // NOTE: 'this' refers to the object that has been instantiated!
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -33,7 +34,7 @@ Player.prototype.update = function(dt) {
 };
 
 Player.prototype.render = function() {
-
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 Player.prototype.handleInput = function(keyPressed) {
@@ -78,6 +79,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
-

@@ -59,8 +59,6 @@ var Engine = (function(global) {
         win.requestAnimationFrame(main);
     }
     
-    // NOTE: This function 
-    
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
      * game loop.
@@ -167,10 +165,8 @@ var Engine = (function(global) {
         // noop
     }
     
-    
     // NOTE: Here is where the app starts!
     // Resources.load() is the first function called. 
-    // 
     
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when

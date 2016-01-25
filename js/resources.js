@@ -56,6 +56,8 @@
                 /* Once the image is actually loaded and properly cached,
                  * call all of the onReady() callbacks we have defined.
                  */
+                // NOTE: Only if all images have been loaded, will we call the
+                // following function, which in turn executes Engine.init() only once.
                 if(isReady()) {
                     readyCallbacks.forEach(function(func) { func(); });
                 }
