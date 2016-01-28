@@ -12,3 +12,4 @@ Move your character from the bottom, grass squares to the water trying to avoid 
 If you would like to run it locally in your browser,
 1) Clone the repository to your computer, and
 2) Open the HTML file in your favorite web browser and you will be playing in no time!
+
