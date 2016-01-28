@@ -80,9 +80,28 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        // checkCollisions();
+        checkCollisions();
     }
-
+    
+    /* Detect collisions by checking a certain margin in front and below the
+     * enemy to see if the player comes into contact with the former.
+     */
+    function checkCollisions() {
+        allEnemies.forEach(function(enemy) {
+            var intEnemyX = Math.floor(enemy.x);
+            var intPlayerX = Math.floor(player.x);
+            var intEnemyY = Math.floor(enemy.y);
+            var intPlayerY = Math.floor(player.y);
+            // for 'x' value of the enemy, that's when the enemy barely touches the player
+            // the 'y' value determines the location of the player relative to the enemy
+            if (intPlayerX >= intEnemyX && intPlayerX <= intEnemyX + 75
+                && intPlayerY >= intEnemyY && intPlayerY <= intEnemyY + 83) {
+                player.x = 202;
+                player.y = 405;
+            }
+        });
+    }
+    
     /* This is called by the update function and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
      * their update() methods. It will then call the update function for your
